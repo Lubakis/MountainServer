@@ -73,7 +73,8 @@ const route = [{
           lng: Joi.number().required()
         },
         headers: Joi.object({
-          'content-type': Joi.string().regex(/(application\/json)/).required()
+          'content-type': Joi.string().regex(/(application\/json)/).required(),
+          'Authentication-Token': Joi.string().token()
         }).unknown()
       }
     }
@@ -128,7 +129,12 @@ const route = [{
     path: '/profiles',
     config: {
       auth: 'jwt',
-      handler: getProfilesHandler
+      handler: getProfilesHandler,
+      validate: {
+        headers: Joi.object({
+          'Authentication-Token': Joi.string().token()
+        }).unknown()
+      }
     }
   },
   {
@@ -145,7 +151,11 @@ const route = [{
         payload: {
           password: Joi.string().required(),
           confirmed_password: Joi.string().required()
-        }
+        },
+        headers: Joi.object({
+          'content-type': Joi.string().regex(/(application\/json)/).required(),
+          'Authentication-Token': Joi.string().token()
+        }).unknown()
       }
     }
   }
