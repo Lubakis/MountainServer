@@ -26,8 +26,8 @@ module.exports = {
   },
   credentials: {
     'facebook': {
-      'AppID': '686766988166832',
-      'AppSecret': '86a865c0281e1e6363decfaff5d7b8f7',
+      'AppID': 'facebookAppId',
+      'AppSecret': 'facebookAppSecret', //
       'verificationURI': 'https://graph.facebook.com/me?access_token'
     }
   },

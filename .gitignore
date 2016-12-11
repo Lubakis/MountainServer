@@ -52,3 +52,6 @@ typings.json
 # VS Code
 .vscode
 launch.json
+
+#secrets
+secret.js

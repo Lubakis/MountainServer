@@ -10,7 +10,7 @@ const userSchema = new Mongoose.Schema({
   first_name: { type: String },
   last_name: { type: String },
   phone_number: { type: String },
-  username: { type: String, unique: true, required: true },
+  username: { type: String, unique: true },
   password: { type: String },
   email: { type: String, unique: true, required: true },
   location: {lat: Number, lng: Number},
