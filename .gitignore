@@ -48,3 +48,7 @@ typings.json
 
 # Temp data
 .tmp
+
+# VS Code
+.vscode
+launch.json
