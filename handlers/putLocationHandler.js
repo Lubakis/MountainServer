@@ -8,7 +8,7 @@ module.exports = function (request, reply) {
 
   User.findOneAndUpdate({_id: userId}, {location: {lat: location.lat, lng: location.lng}})
     .then((result) => {
-      return reply({result: result})
+      return reply({location: location})
     })
     .catch(err => {
       return reply(Boom.badData(err.message))

@@ -73,7 +73,7 @@ const route = [{
           lng: Joi.number().required()
         },
         headers: Joi.object({
-          'content-type': Joi.string().regex(/(application\/json)/).required(),
+          'Content-Type': Joi.string().regex(/(application\/json)/),
           'Authentication-Token': Joi.string().token()
         }).unknown()
       }
@@ -94,7 +94,7 @@ const route = [{
           fb_token: Joi.string().required()
         },
         headers: Joi.object({
-          'content-type': Joi.string().regex(/(application\/json)/).required()
+          'Content-Type': Joi.string().regex(/(application\/json)/)
         }).unknown()
       }
     }
@@ -119,7 +119,7 @@ const route = [{
           })
         },
         headers: Joi.object({
-          'content-type': Joi.string().regex(/(application\/json)/).required()
+          'Content-Type': Joi.string().regex(/(application\/json)/)
         }).unknown()
       }
     }
@@ -153,7 +153,7 @@ const route = [{
           confirmed_password: Joi.string().required()
         },
         headers: Joi.object({
-          'content-type': Joi.string().regex(/(application\/json)/).required(),
+          'Content-Type': Joi.string().regex(/(application\/json)/),
           'Authentication-Token': Joi.string().token()
         }).unknown()
       }
