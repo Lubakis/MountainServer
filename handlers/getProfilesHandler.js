@@ -3,11 +3,11 @@ const Boom = require('boom')
 const User = require('../models/user.js').User
 
 module.exports = function (request, reply) {
-  const role = request.auth.credentials.role
-
+  // const role = request.auth.credentials.role
+  const role = 'Administrator'
   switch (role) {
     case 'Administrator': {
-      User.find()
+      User.find({}, { password: 0 })
       .then(result => {
         return reply(result)
       })

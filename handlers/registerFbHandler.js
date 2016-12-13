@@ -14,7 +14,7 @@ module.exports = function (request, reply) {
     .then((userData) => {
       let name = userData.name.split(' ')
       let signUpData = {
-        username: userData.id,
+        fb_linked: userData.id,
         email: userData.email,
         first_name: name.shift(),
         last_name: name.pop(),
@@ -28,7 +28,7 @@ module.exports = function (request, reply) {
           const userToken = { token: JWT.sign({ id: np._id, email: np.email, role: np.role }, config.JWT.secret) }
           return reply(userToken)
         })
-        .catch((err) => { return reply(Boom.unauthorized(err.message)) })
+//        .catch((err) => { return reply(Boom.unauthorized(err.message)) })
     })
     .catch((err) => { return reply(Boom.unauthorized(err.message)) })
 }

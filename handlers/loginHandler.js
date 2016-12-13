@@ -9,6 +9,7 @@ module.exports = function (request, reply) {
   const email = request.payload.email
   const username = request.payload.username
   const password = request.payload.password.toString()
+
   if (!email) var query = {username: username}
   else query = {email: email}
 
