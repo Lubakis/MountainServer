@@ -13,7 +13,7 @@ module.exports = function (request, reply) {
     .then((np) => {
       if (!np) return reply(Boom.unauthorized(null, 'Custom'))
       else {
-        const token = JWT.sign({ id: np._id, email: np.email, role: np.role }, config.JWT.secret)
+        const token = JWT.sign({ id: np._id, email: np.email }, config.JWT.secret)
         return reply({ token: token })
       }
     })

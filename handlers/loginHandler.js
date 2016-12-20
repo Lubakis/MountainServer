@@ -17,7 +17,7 @@ module.exports = function (request, reply) {
   .then((np) => {
     bcrypt.compare(password, np.password, (err, result) => {
       if (!err && result) {
-        const token = JWT.sign({ id: np._id, email: np.email, role: np.role }, config.JWT.secret)
+        const token = JWT.sign({ id: np._id, email: np.email }, config.JWT.secret)
         return reply({token: token, fullname: np.full_name})
       } else if (!result) {
         return reply(Boom.unauthorized('Wrong username/password'))

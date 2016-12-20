@@ -25,7 +25,7 @@ module.exports = function (request, reply) {
 
       addUser(request, signUpData)
         .then((np) => {
-          const userToken = { token: JWT.sign({ id: np._id, email: np.email, role: np.role }, config.JWT.secret) }
+          const userToken = { token: JWT.sign({ id: np._id, email: np.email }, config.JWT.secret) }
           return reply(userToken)
         })
 //        .catch((err) => { return reply(Boom.unauthorized(err.message)) })

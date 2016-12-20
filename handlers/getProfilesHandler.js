@@ -3,8 +3,7 @@ const Boom = require('boom')
 const User = require('../models/user.js').User
 
 module.exports = function (request, reply) {
-  // const role = request.auth.credentials.role
-  const role = 'Administrator'
+  const role = request.auth.credentials.scope
   switch (role) {
     case 'Administrator': {
       User.find({}, { password: 0 })
@@ -17,7 +16,7 @@ module.exports = function (request, reply) {
     }
       break
     case 'MointainDispatcher': {
-      User.find({role: 'MountainRescuer'}).select('location')
+      User.find({role: 'MountainRescuer'}, { password: 0 }).select('location')
       .then(result => {
         return reply(result)
       })
