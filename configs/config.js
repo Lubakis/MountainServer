@@ -1,4 +1,5 @@
 'use strict'
+// this is just a test
 
 module.exports = {
   goodOptions: {
