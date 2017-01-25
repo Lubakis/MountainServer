@@ -18,7 +18,9 @@ const routes = [
       validate: {
         payload: {
           lat: Joi.number().required(),
-          lng: Joi.number().required()
+          lng: Joi.number().required(),
+          altitude: Joi.number().integer().required(),
+          coordinateAccuracy: Joi.number().integer().optional()
         },
         headers: Joi.object({
           'Content-Type': Joi.string().regex(/(application\/json)/),
